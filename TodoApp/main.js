@@ -46,19 +46,23 @@ function checkInput(todo) {
     
 
 let userListDom = document.querySelector('#userList');
+
 console.log(userListDom);
 
 const addItem = (todo) => {
-    let liDOM = document.createElement("li","button");
+    let liDOM = document.createElement("li",);
   
-    liDOM.innerHTML = `${todo} `;
+    liDOM.innerHTML = `${todo} 
+     <span class="badge bg-primary">${todo.length}</span>
+  
+  `;
    
-    liDOM.classList.add("list-group-item", "list-group-item-action","text-center", "d-flex","text-center");
+    liDOM.classList.add("list-group-item", "list-group-item-action","text-center",);
     userListDom.appendChild(liDOM);
 
     liDOM.addEventListener('click', function() {
         this.remove();
-        alertDOM.innerHTML = ALERT(`${todo} silindi!`,"danger");
+        alertDOM.innerHTML = ALERT(`${todo} deleted!`,"danger");
     });
   };
   
