@@ -1,0 +1,50 @@
+div h1{
+    color: red;
+    font-size: 50px;
+
+}
+
+#userForm{
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 75%;
+}
+.list-group-item:hover{
+    background-color: red;
+    color: white;
+    text-decoration-line: line-through;
+
+    
+}
+.list-group-item{
+ 
+    font-size: 20px;
+    
+    border: 1px solid black;
+    cursor: pointer;
+ 
+    
+}
+ul{
+    list-style-type:none;
+    display:flex;
+    justify-content: center;
+  
+  }
