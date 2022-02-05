@@ -2,10 +2,15 @@ let userFormDOM = document.querySelector('#userForm');
 let todoInputDOM = document.querySelector('#todo');
 let submitButtonDOM = document.querySelector('#ekle');
 
-const alertDOM = document.querySelector("#alert");
+const toastDOM = document.querySelector("#toast");
 
-const ALERT =(message,className) => `<div class="mt-2 text-center alert alert-${className} alert-dismissible fade show" role="alert"> ${message}
-<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+const ALERT =() => `<div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+<div class="d-flex">
+  <div class="toast-body">
+    Hello, world! This is a toast message.
+  </div>
+  <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+</div>
 </div>`
 
 
@@ -15,7 +20,7 @@ console.log(submitButtonDOM);
 
 submitButtonDOM.addEventListener('click', handleClick);
 
-let items = [];
+let todos = [];
 
 function handleClick (e)  {
     e.preventDefault();
@@ -31,16 +36,16 @@ function checkInput(todo) {
 
     if (todo) {
         addItem(todo);
-        alertDOM.innerHTML = ALERT(`${todo} added!`,"success");
+        toastDOM.innerHTML = ALERT();
 
         userFormDOM.reset();
       }else if (todo === "") {
-        alertDOM.innerHTML = ALERT("Please enter a todo", "danger");
+        toastDOM.innerHTML = ALERT();
       }else if (todo == parseInt(todo)) {
-        alertDOM.innerHTML = ALERT("Please enter a valid username", "danger");
+        toastDOM.innerHTML = ALERT("Please enter a valid username", "danger");
       }
       else{
-        alertDOM.innerHTML = ALERT;
+        toastDOM.innerHTML = ALERT;
       }
 }
     
@@ -62,7 +67,7 @@ const addItem = (todo) => {
 
     liDOM.addEventListener('click', function() {
         this.remove();
-        alertDOM.innerHTML = ALERT(`${todo} deleted!`,"danger");
+        toastDOM.innerHTML = ALERT(`${todo} deleted!`,"danger");
     });
   };
   
